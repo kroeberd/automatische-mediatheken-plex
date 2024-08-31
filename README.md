@@ -19,3 +19,6 @@ Unraid Docker:
 8. python3 /root/mediathek.py
 
 Laufen lassen.
+
+Anmerkung: Entsprechend den Agent im Script anpassen. Dieser ist Standartgemäß auf Stash eingestellt.
+Stash-Agent -> https://github.com/Darklyter/StashPlexAgent.bundle
