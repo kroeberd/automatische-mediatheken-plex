@@ -10,9 +10,10 @@ Unraid Docker:
 1. docker exec -it NAME_DES_DOCKERS /bin/bash
 2. curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 3. python3 get-pip.py --break-system-packages
+
     **ACHTUNG: Auf eigenes Risiko!**
 
-6. pip install plexapi
+4. pip install plexapi
 5. nano /root/mediathek.py
 6. Einfügen des Scriptinhaltes.
 7. Strg + X und mit Y bestätigen
