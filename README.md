@@ -32,6 +32,7 @@ Beispiel:
 dort sind 
 
 /media/abc/098
+
 /media/123/def
 
 ist media als Hauptverzeichnis eingestellt werden folgende Mediatheken erstellt:
