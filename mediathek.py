@@ -3,7 +3,7 @@ import os
 import requests
 import time
 
-# Version 0.1 08/2024 Release. By Sarcasm
+# Version 0.2 09/2024 Release. By Sarcasm
 
 ##################################################
 ###               HIER BEARBEITEN
