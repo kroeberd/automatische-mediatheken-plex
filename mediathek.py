@@ -3,27 +3,29 @@ import os
 import requests
 import time
 
-#Version 0.1 08/2024 Release. By Sarcasm
+# Version 0.1 08/2024 Release. By Sarcasm
 
 ##################################################
 ###               HIER BEARBEITEN
 ##################################################
 # Plex-Server Informationen
-PLEX_URL = 'http://IPPLEX:32400'  # Ersetze durch die IP-Adresse deines Plex-Servers
+PLEX_URL = 'http://127.0.0.1:32400'  # Ersetze durch die IP-Adresse deines Plex-Servers (nur ausserhalb des Dockers.)
 PLEX_TOKEN = 'TOKEN'         # Ersetze durch deinen Plex-Token
 
 # UNC-Pfad zum Basisordner
-base_folder = r'/media' #Hier den Pfad zum Stammverzeichnis
+base_folder = r'/media'  # Hier den Pfad zum Stammverzeichnis
+
+# Plex Agent und Scanner
+PLEX_AGENT = 'com.plexapp.agents.stashplexagent'  # Standard Plex Movie Agent
+PLEX_SCANNER = 'Plex Movie Scanner'  # Standard Plex Movie Scanner
+
+##################################################
+##################################################
 
 # Verbindung zum Plex-Server herstellen
 plex = PlexServer(PLEX_URL, PLEX_TOKEN)
 
-
-##################################################
-##################################################
-
-
-def create_library(library_name, folder_path):
+def create_library(library_name, folder_path, agent, scanner):
     """
     Erstellt eine Plex-Mediathek mit dem gegebenen Namen und Ordnerpfad durch eine direkte API-Anfrage.
     """
@@ -35,14 +37,11 @@ def create_library(library_name, folder_path):
     # Parameter für die Anfrage
     params = {
         'name': library_name,
-        'type': 'movie',  # Typ der Mediathek (z.B. 'movie', 'show')
-        'agent': 'com.plexapp.agents.stashplexagent',  # Standard Plex Movie Agent
-        'scanner': 'Plex Movie Scanner',  # Standard Plex Movie Scanner
+        'type': 'movie',
+        'agent': agent,
+        'scanner': scanner,
         'language': 'en',
-        'location': folder_path,
-        'generatePreviewThumbnails': '0',
-        'enableCinemaTrailers': '0',
-        'enableCreditsDetection': '0'
+        'location': folder_path
     }
   
     headers = {
@@ -67,7 +66,7 @@ def main():
 
         if os.path.isdir(folder_path):  # Sicherstellen, dass es ein Ordner ist
             if folder_name not in existing_libraries:
-                create_library(folder_name, folder_path)
+                create_library(folder_name, folder_path, PLEX_AGENT, PLEX_SCANNER)
                 time.sleep(5)  # 5 Sekunden warten, um zu vermeiden, dass die API überlastet wird
             else:
                 print(f"Mediathek {folder_name} existiert bereits.")
