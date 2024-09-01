@@ -3,43 +3,33 @@
 Hallo zusammen,
 wer viele einzelne Mediatheken auf Basis von Unterordnern benötigt kann dieses Script gebrauchen.
 
-How-to:
+**Die Nutzung des Scripts und dieser Anleitung geschieht auf eigene Verantwortung.**
 
-Unraid Docker:
+## How-to:
+unRAID mit dem Plex Docker-Container:
 
-1. docker exec -it NAME_DES_DOCKERS /bin/bash
-2. curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-3. python3 get-pip.py --break-system-packages
+1. ```docker exec -it NAME_DES_DOCKERS /bin/bash``` (dabei NAME_DES_DOCKERS mit dem tatsächlichen Namen ersetzen)
+2. ```curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py```
+3. ```python3 get-pip.py --break-system-packages```
+4. ```pip install plexapi --break-system-packages```
+5. ```nano /root/mediathek.py```
+6. ```Einfügen des Scriptinhaltes.```
+7. ```Strg + X und mit Y bestätigen```
+8. ```python3 /root/mediathek.py```
 
-    **ACHTUNG: Auf eigenes Risiko!**
+Damit sollte das Script die Arbeit tun.
 
-4. pip install plexapi --break-system-packages
-5. nano /root/mediathek.py
-6. Einfügen des Scriptinhaltes.
-7. Strg + X und mit Y bestätigen
-8. python3 /root/mediathek.py
-
-Laufen lassen.
-
-Anmerkung: Entsprechend den Agent im Script anpassen. Dieser ist Standartgemäß auf Stash eingestellt.
+**Anmerkung:** Entsprechend den Agent im Script anpassen. Dieser ist Standartgemäß auf Stash eingestellt.
 Stash-Agent -> https://github.com/Darklyter/StashPlexAgent.bundle
+
+## Funktion
 
 Das Script prüft ebenfalls auf vorhandene Mediatheken, entsprechend der Unterordner.
 
 Beispiel:
 
-/media ist Hauptverzeichnis
+```/media``` ist das Hauptverzeichnis, in welchem sich weitere Verzeichnisse befinden: ```/media/abc/098``` und ```/media/123/def```:
 
-dort sind 
+Wenn ```/media``` als das Hauptverzeichnis gesetzt ist, werden dabei die Mediatheken ```abc``` und ```123``` erstellt.
 
-/media/abc/098
-
-/media/123/def
-
-ist media als Hauptverzeichnis eingestellt werden folgende Mediatheken erstellt:
-
-abc
-
-123
-
-viel Spaß.
+**Viel Spaß!**
