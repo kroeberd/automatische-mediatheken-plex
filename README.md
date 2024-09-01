@@ -1,7 +1,9 @@
 # automatische-mediatheken-plex
 
+English version: https://github.com/kroeberd/automatische-mediatheken-plex/blob/main/README_EN.md
+
 Hallo zusammen,
-wer viele einzelne Mediatheken auf Basis von Unterordnern benötigt kann dieses Script gebrauchen.
+wer viele einzelne Mediatheken auf Basis von Unterordnern benötigt, kann dieses Script gebrauchen.
 
 **Die Nutzung des Scripts und dieser Anleitung geschieht auf eigene Verantwortung.**
 
