@@ -13,7 +13,7 @@ Unraid Docker:
 
     **ACHTUNG: Auf eigenes Risiko!**
 
-4. pip install plexapi
+4. pip install plexapi --break-system-packages
 5. nano /root/mediathek.py
 6. Einfügen des Scriptinhaltes.
 7. Strg + X und mit Y bestätigen
