@@ -24,6 +24,7 @@ Laufen lassen.
 Anmerkung: Entsprechend den Agent im Script anpassen. Dieser ist Standartgemäß auf Stash eingestellt.
 Stash-Agent -> https://github.com/Darklyter/StashPlexAgent.bundle
 
+Das Script prüft ebenfalls auf vorhandene Mediatheken, entsprechend der Unterordner.
 
 Beispiel:
 
