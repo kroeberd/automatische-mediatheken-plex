@@ -1,5 +1,8 @@
 #!/bin/bash
 # by Denny Kroeber / Sarcasm / kroeberd / v.0.1 Beta
+#
+# https://github.com/kroeberd/automatische-mediatheken-plex/
+#
 # Define variables
 DOCKER_NAME="DOCKER_NAME"  # Replace with the actual name of your Docker container
 
@@ -13,10 +16,12 @@ base_folder="r'/media'"
 PLEX_AGENT = 'com.plexapp.agents.stashplexagent'  # Standard Plex Movie Agent
 PLEX_SCANNER = 'Plex Movie Scanner'  # Standard Plex Movie Scanner
 
-# If set to true, then the latest pythonscript is always loaded. Default: true
+# If set to true, then the latest pythonscript is always loaded.
+# Default: true
 OVERWRITE_OFFLINE_FILE=true
 
-# Only change this value if you know exactly what you are doing. a change is not necessary. Default: http://127.0.0.1:32400
+# Only change this value if you know exactly what you are doing. a change is not necessary. 
+# Default: http://127.0.0.1:32400
 PLEX_URL = 'http://127.0.0.1:32400'  # Replace with your Plex server URL
 
 #####################################
