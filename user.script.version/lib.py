@@ -4,10 +4,11 @@ import os
 import requests
 import time
 
-# by Denny Kroeber / Sarcasm / kroeberd
+# Debug-Ausgaben
+print(f"Received arguments: {sys.argv}")
 
 if len(sys.argv) != 6:
-    print("Usage: python lib.py <PLEX_TOKEN> <folder_path> <PLEX_AGENT> <PLEX_SCANNER> <PLEX_URL>")
+    print("Usage: python lib.py <PLEX_TOKEN> <FOLDER_PATH> <PLEX_AGENT> <PLEX_SCANNER> <PLEX_URL>")
     sys.exit(1)
 
 PLEX_TOKEN = sys.argv[1]
@@ -16,12 +17,12 @@ PLEX_AGENT = sys.argv[3]
 PLEX_SCANNER = sys.argv[4]
 PLEX_URL = sys.argv[5]
 
-print(f"FOLDER_PATH: {folder_path}")
+print(f"FOLDER_PATH: {FOLDER_PATH}")
 
 plex = PlexServer(PLEX_URL, PLEX_TOKEN)
 
-def create_library(library_name, FOLDER_PATH, agent, scanner):
-    print(f'Erstelle Mediathek: {library_name} für den Pfad: {FOLDER_PATH}')
+def create_library(library_name, folder_path, agent, scanner):
+    print(f'Erstelle Mediathek: {library_name} für den Pfad: {folder_path}')
     url = f'{PLEX_URL}/library/sections'
     params = {
         'name': library_name,
@@ -47,10 +48,10 @@ def main():
     sections = plex.library.sections()
     existing_libraries = {section.title for section in sections}
     for folder_name in os.listdir(FOLDER_PATH):
-        FOLDER_PATH = os.path.join(FOLDER_PATH, folder_name)
-        if os.path.isdir(FOLDER_PATH):  # Sicherstellen, dass es ein Ordner ist
+        folder_path = os.path.join(FOLDER_PATH, folder_name)
+        if os.path.isdir(folder_path):  # Sicherstellen, dass es ein Ordner ist
             if folder_name not in existing_libraries:
-                create_library(folder_name, FOLDER_PATH, PLEX_AGENT, PLEX_SCANNER)
+                create_library(folder_name, folder_path, PLEX_AGENT, PLEX_SCANNER)
                 time.sleep(5)  # 5 Sekunden warten, um zu vermeiden, dass die API überlastet wird
             else:
                 print(f"Mediathek {folder_name} existiert bereits.")
