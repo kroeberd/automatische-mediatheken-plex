@@ -10,11 +10,11 @@ DOCKER_NAME="DOCKER_NAME"  # Replace with the actual name of your Docker contain
 PLEX_TOKEN="YOUR_PLEX_TOKEN"  # Replace with your actual Plex token
 
 # Enter the main folder here. the subfolders located there are created as media libraries. E. g. /media
-base_folder="r'/media'"
+base_folder=r'/media'
 
 # Plex Agent and Scanner
-PLEX_AGENT = 'com.plexapp.agents.stashplexagent'  # Standard Plex Movie Agent
-PLEX_SCANNER = 'Plex Movie Scanner'  # Standard Plex Movie Scanner
+PLEX_AGENT='com.plexapp.agents.stashplexagent'  # Standard Plex Movie Agent
+PLEX_SCANNER='Plex Movie Scanner'  # Standard Plex Movie Scanner
 
 # If set to true, then the latest pythonscript is always loaded.
 # Default: true
@@ -22,7 +22,7 @@ OVERWRITE_OFFLINE_FILE=true
 
 # Only change this value if you know exactly what you are doing. a change is not necessary. 
 # Default: http://127.0.0.1:32400
-PLEX_URL = 'http://127.0.0.1:32400'
+PLEX_URL='http://127.0.0.1:32400'
 
 #####################################
 #       Don't change from here      #
