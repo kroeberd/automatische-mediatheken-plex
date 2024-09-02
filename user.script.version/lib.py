@@ -4,12 +4,12 @@ import os
 import requests
 import time
 
-def make_raw_string(path):
+def make_raw_string(FOLDER_PATH):
     """
     Convert the path to a raw string by replacing escape sequences.
     This function is a workaround to handle paths with backslashes.
     """
-    return path.replace('\\', r'\\')
+    return FOLDER_PATH.replace('\\', r'\\')
 
 # Debug-Ausgaben
 print(f"Received arguments: {sys.argv}")
