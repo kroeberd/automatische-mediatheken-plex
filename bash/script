@@ -2,7 +2,7 @@
 
 # Define variables
 DOCKER_NAME="DOCKER_NAME"  # Replace with the actual name of your Docker container
-PYTHON_FILE_URL="https://raw.githubusercontent.com/kroeberd/automatische-mediatheken-plex/main/mediathek.py"
+PYTHON_FILE_URL="https://raw.githubusercontent.com/kroeberd/automatische-mediatheken-plex/main/user.script.version/lib.py"
 PYTHON_FILE="lib.py"
 OVERWRITE_OFFLINE_FILE=true  # If true, the offline file will be overwritten
 PLEX_TOKEN="YOUR_PLEX_TOKEN"  # Replace with your actual Plex token
