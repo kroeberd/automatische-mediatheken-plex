@@ -16,8 +16,8 @@ PLEX_TOKEN = sys.argv[1]
 base_folder = sys.argv[2]
 
 # Plex Agent and Scanner
-PLEX_AGENT = 'com.plexapp.agents.stashplexagent'  # Standard Plex Movie Agent
-PLEX_SCANNER = 'Plex Movie Scanner'  # Standard Plex Movie Scanner
+PLEX_AGENT = sys.argv[3]
+PLEX_SCANNER = 'sys.argv[4]
 
 # Your existing Plex setup and logic
 PLEX_URL = 'http://127.0.0.1:32400'  # Replace with your Plex server URL
