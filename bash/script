@@ -10,7 +10,7 @@ DOCKER_NAME="DOCKER_NAME"  # Replace with the actual name of your Docker contain
 PLEX_TOKEN="YOUR_PLEX_TOKEN"  # Replace with your actual Plex token
 
 # Enter the main folder here. the subfolders located there are created as media libraries. E. g. /media
-base_folder=r'/media'
+folder_path=r'/media'
 
 # Plex Agent and Scanner
 PLEX_AGENT='com.plexapp.agents.stashplexagent'  # Standard Plex Movie Agent
@@ -64,6 +64,6 @@ fi
 # Copy and execute the Python script in the Docker container with the Plex token
 echo "Copying and running the script in the Docker container..."
 docker cp "$PYTHON_FILE" "$DOCKER_NAME":/
-docker exec "$DOCKER_NAME" /bin/bash -c "python3 /$PYTHON_FILE $PLEX_TOKEN $base_folder $PLEX_AGENT $PLEX_SCANNER $PLEX_URL"
+docker exec "$DOCKER_NAME" /bin/bash -c "python3 /$PYTHON_FILE $PLEX_TOKEN $folder_path $PLEX_AGENT $PLEX_SCANNER $PLEX_URL"
 
 echo "Script completed."
