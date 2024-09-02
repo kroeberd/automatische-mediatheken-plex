@@ -11,7 +11,9 @@ wer viele einzelne Mediatheken auf Basis von Unterordnern benötigt, kann dieses
 Shell öffnen und Befehl ausführen in Unraid:
 ```git clone https://github.com/kroeberd/automatische-mediatheken-plex.git /tmp/automatische-mediatheken-plex && mkdir -p /boot/config/plugins/user.scripts/scripts/automaticplexlibs/ && cp -r /tmp/automatische-mediatheken-plex/bash/* /boot/config/plugins/user.scripts/scripts/automaticplexlibs/ && rm -rf /tmp/automatische-mediatheken-plex```
 
-**Voraussetzungen: - User-Scripts, siehe dazu Apps unter unraid.**
+**Voraussetzungen: 
+- User-Scripts, siehe dazu Apps unter unraid.
+- Das Hauptverzeichniss muss im Docker /media sein.**
 
 Einrichtung:
 - DOCKER_NAME mit dem Namen des Plex-Dockers ersetzen (EXAKT)
