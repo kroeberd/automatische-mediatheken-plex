@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# by Denny Kroeber / Sarcasm / kroeberd / v.0.1 Beta
 # Define variables
 DOCKER_NAME="DOCKER_NAME"  # Replace with the actual name of your Docker container
 
@@ -10,7 +10,7 @@ PLEX_TOKEN="YOUR_PLEX_TOKEN"  # Replace with your actual Plex token
 OVERWRITE_OFFLINE_FILE=true  
 
 #####################################
-#       Don't change from here       #
+#       Don't change from here      #
 #####################################
 PYTHON_FILE_URL="https://raw.githubusercontent.com/kroeberd/automatische-mediatheken-plex/main/user.script.version/lib.py"
 PYTHON_FILE="lib.py"
@@ -20,13 +20,13 @@ function install_pip() {
     if docker exec "$DOCKER_NAME" which apt &> /dev/null; then
         echo "apt is available. Installing pip using apt..."
         docker exec "$DOCKER_NAME" /bin/bash -c "apt update && apt install python3-pip -y"
-        docker exec "$DOCKER_NAME" /bin/bash -c "pip install plexapi --break-system-packages"
     else
         echo "apt is not available. Installing pip using curl..."
         docker exec "$DOCKER_NAME" /bin/bash -c "curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py"
         docker exec "$DOCKER_NAME" /bin/bash -c "python3 get-pip.py --break-system-packages"
-        docker exec "$DOCKER_NAME" /bin/bash -c "pip install plexapi --break-system-packages"
     fi
+    # Install plexapi using pip
+    docker exec "$DOCKER_NAME" /bin/bash -c "pip install plexapi --break-system-packages"
 }
 
 # Check if pip is installed
