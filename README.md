@@ -7,7 +7,20 @@ wer viele einzelne Mediatheken auf Basis von Unterordnern benötigt, kann dieses
 
 **Die Nutzung des Scripts und dieser Anleitung geschieht auf eigene Verantwortung.**
 
-## How-to:
+## Einfacher Weg:
+Shell öffnen und Befehl ausführen in Unraid:
+```git clone https://github.com/kroeberd/automatische-mediatheken-plex.git /tmp/automatische-mediatheken-plex && mkdir -p /boot/config/plugins/user.scripts/scripts/automaticplexlibs/ && cp -r /tmp/automatische-mediatheken-plex/bash/* /boot/config/plugins/user.scripts/scripts/automaticplexlibs/ && rm -rf /tmp/automatische-mediatheken-plex```
+
+**Voraussetzungen: - User-Scripts, siehe dazu Apps unter unraid.**
+
+Einrichtung:
+- DOCKER_NAME mit dem Namen des Plex-Dockers ersetzen (EXAKT)
+- YOUR_PLEX_TOKEN mit dem Token des Servers austauschen
+- PLEX_AGENT, PLEX_SCANNER, OVERWRITE_OFFLINE_FILE und PLEX_URL nur bei Bedarf anpassen!
+- Danach speichern und einfach Starten.
+
+## Manueller weg:
+
 unRAID mit dem Plex Docker-Container:
 
 1. ```docker exec -it NAME_DES_DOCKERS /bin/bash``` (dabei NAME_DES_DOCKERS mit dem tatsächlichen Namen ersetzen)
