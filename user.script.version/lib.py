@@ -4,6 +4,11 @@ import os
 import requests
 import time
 
+def make_raw_string(path):
+    if path.startswith(r''):
+        return path
+    return r'' + path
+
 # Debug-Ausgaben
 print(f"Received arguments: {sys.argv}")
 
@@ -17,6 +22,7 @@ PLEX_AGENT = sys.argv[3]
 PLEX_SCANNER = sys.argv[4]
 PLEX_URL = sys.argv[5]
 
+# Debug-Ausgabe
 print(f"FOLDER_PATH: {FOLDER_PATH}")
 
 plex = PlexServer(PLEX_URL, PLEX_TOKEN)
