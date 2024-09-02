@@ -1,10 +1,11 @@
 #!/bin/bash
-#by Sarcasm/kroeberd v.0.1 01.2024
+
 # Define variables
-DOCKER_NAME="DOCKERNAME"  # Replace with the actual name of your Docker container
+DOCKER_NAME="DOCKER_NAME"  # Replace with the actual name of your Docker container
 PYTHON_FILE_URL="https://raw.githubusercontent.com/kroeberd/automatische-mediatheken-plex/main/mediathek.py"
-PYTHON_FILE="mediathek.py"
+PYTHON_FILE="lib.py"
 OVERWRITE_OFFLINE_FILE=true  # If true, the offline file will be overwritten
+PLEX_TOKEN="YOUR_PLEX_TOKEN"  # Replace with your actual Plex token
 
 # Check if pip is installed
 echo "Checking if pip is installed..."
@@ -25,8 +26,9 @@ else
     echo "$PYTHON_FILE already exists and will not be overwritten."
 fi
 
-# Execute the Python script in the Docker container
+# Execute the Python script in the Docker container with the Plex token
 echo "Running the script..."
-docker exec -it "$DOCKER_NAME" /bin/bash -c "python3 $PYTHON_FILE"
+docker cp "$PYTHON_FILE" "$DOCKER_NAME":/
+docker exec -it "$DOCKER_NAME" /bin/bash -c "python3 /$PYTHON_FILE $PLEX_TOKEN"
 
 echo "Script completed."
