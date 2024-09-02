@@ -13,7 +13,7 @@ if len(sys.argv) != 2:
 PLEX_TOKEN = sys.argv[1]
 
 # UNC-Path
-base_folder = r'/media'  # Hier den Pfad zum Stammverzeichnis
+base_folder = sys.argv[2]
 
 # Plex Agent and Scanner
 PLEX_AGENT = 'com.plexapp.agents.stashplexagent'  # Standard Plex Movie Agent
