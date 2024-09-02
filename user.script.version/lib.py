@@ -6,16 +6,20 @@ import time
 
 # by Denny Kroeber / Sarcasm / kroeberd
 
-if len(sys.argv) != 2:
-    print("Usage: python lib.py <PLEX_TOKEN>")
-    sys.exit(1)
-
 PLEX_TOKEN = sys.argv[1]
 folder_path = sys.argv[2]
 PLEX_AGENT = sys.argv[3]
 PLEX_SCANNER = sys.argv[4]
 PLEX_URL = sys.argv[5]
 plex = PlexServer(PLEX_URL, PLEX_TOKEN)
+
+# debug print
+print(f"PLEX_URL: {PLEX_URL}")
+print(f"PLEX_TOKEN: {PLEX_TOKEN}")
+print(f"PLEX_AGENT: {PLEX_AGENT}")
+print(f"PLEX_SCANNER: {PLEX_SCANNER}")
+print(f"folder_path: {folder_path}")
+
 
 def create_library(library_name, folder_path, agent, scanner):
     print(f'Erstelle Mediathek: {library_name} für den Pfad: {folder_path}')
