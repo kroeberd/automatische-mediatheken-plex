@@ -6,15 +6,16 @@ import time
 # Debug-Ausgaben
 print(f"Received arguments: {sys.argv}")
 
-if len(sys.argv) != 6:
-    print("Usage: python lib.py <PLEX_TOKEN> <FOLDER_PATH> <PLEX_AGENT> <PLEX_SCANNER> <PLEX_URL>")
+if len(sys.argv) != 5:
+    # print("Usage: python lib.py <PLEX_TOKEN> <FOLDER_PATH> <PLEX_AGENT> <PLEX_SCANNER> <PLEX_URL>")
+    print("Usage: python lib.py <PLEX_TOKEN> <PLEX_AGENT> <PLEX_SCANNER> <PLEX_URL>")
     sys.exit(1)
 
 PLEX_TOKEN = sys.argv[1]
-FOLDER_PATH = sys.argv[2]
-PLEX_AGENT = sys.argv[3]
-PLEX_SCANNER = sys.argv[4]
-PLEX_URL = sys.argv[5]
+FOLDER_PATH = r'/media'
+PLEX_AGENT = sys.argv[2]
+PLEX_SCANNER = sys.argv[3]
+PLEX_URL = sys.argv[4]
 
 # Debug-Ausgabe
 print(f"zweite ausgabe FOLDER_PATH: {FOLDER_PATH}")
