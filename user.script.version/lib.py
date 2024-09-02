@@ -5,9 +5,11 @@ import requests
 import time
 
 def make_raw_string(path):
-    if path.startswith(r''):
-        return path
-    return r'' + path
+    """
+    Convert the path to a raw string by replacing escape sequences.
+    This function is a workaround to handle paths with backslashes.
+    """
+    return path.replace('\\', r'\\')
 
 # Debug-Ausgaben
 print(f"Received arguments: {sys.argv}")
@@ -17,7 +19,7 @@ if len(sys.argv) != 6:
     sys.exit(1)
 
 PLEX_TOKEN = sys.argv[1]
-FOLDER_PATH = make_raw_string(sys.argv[2])  # Use make_raw_string to ensure it's treated as raw
+FOLDER_PATH = make_raw_string(sys.argv[2])  # Use make_raw_string to handle escapes
 PLEX_AGENT = sys.argv[3]
 PLEX_SCANNER = sys.argv[4]
 PLEX_URL = sys.argv[5]
