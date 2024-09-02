@@ -10,20 +10,30 @@ PLEX_TOKEN="YOUR_PLEX_TOKEN"  # Replace with your actual Plex token
 OVERWRITE_OFFLINE_FILE=true  
 
 #####################################
-#       Dont change from here       #
+#       Don't change from here       #
 #####################################
 PYTHON_FILE_URL="https://raw.githubusercontent.com/kroeberd/automatische-mediatheken-plex/main/user.script.version/lib.py"
 PYTHON_FILE="lib.py"
 
+# Function to check if apt is available and install pip accordingly
+function install_pip() {
+    if docker exec "$DOCKER_NAME" which apt &> /dev/null; then
+        echo "apt is available. Installing pip using apt..."
+        docker exec "$DOCKER_NAME" /bin/bash -c "apt update && apt install python3-pip -y"
+        docker exec "$DOCKER_NAME" /bin/bash -c "pip install plexapi --break-system-packages"
+    else
+        echo "apt is not available. Installing pip using curl..."
+        docker exec "$DOCKER_NAME" /bin/bash -c "curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py"
+        docker exec "$DOCKER_NAME" /bin/bash -c "python3 get-pip.py --break-system-packages"
+        docker exec "$DOCKER_NAME" /bin/bash -c "pip install plexapi --break-system-packages"
+    fi
+}
+
 # Check if pip is installed
 echo "Checking if pip is installed..."
-if ! docker exec -it "$DOCKER_NAME" pip --version &> /dev/null; then
+if ! docker exec "$DOCKER_NAME" pip --version &> /dev/null; then
     echo "pip is not installed. Installing pip..."
-    docker exec -it "$DOCKER_NAME" /bin/bash -c "apt update"
-    docker exec -it "$DOCKER_NAME" /bin/bash -c "apt install python3 -y"
-    docker exec -it "$DOCKER_NAME" /bin/bash -c "curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py"
-    docker exec -it "$DOCKER_NAME" /bin/bash -c "python3 get-pip.py --break-system-packages"
-    docker exec -it "$DOCKER_NAME" /bin/bash -c "pip install plexapi --break-system-packages"
+    install_pip
 else
     echo "pip is already installed."
 fi
@@ -36,9 +46,9 @@ else
     echo "$PYTHON_FILE already exists and will not be overwritten."
 fi
 
-# Execute the Python script in the Docker container with the Plex token
-echo "Running the script..."
+# Copy and execute the Python script in the Docker container with the Plex token
+echo "Copying and running the script in the Docker container..."
 docker cp "$PYTHON_FILE" "$DOCKER_NAME":/
-docker exec -it "$DOCKER_NAME" /bin/bash -c "python3 /$PYTHON_FILE $PLEX_TOKEN"
+docker exec "$DOCKER_NAME" /bin/bash -c "python3 /$PYTHON_FILE $PLEX_TOKEN"
 
 echo "Script completed."
