@@ -4,13 +4,15 @@
 # https://github.com/kroeberd/automatische-mediatheken-plex/
 #
 # Define variables
-DOCKER_NAME="DOCKER_NAME"  # Replace with the actual name of your Docker container
+
+# Replace with the actual name of your Docker container
+DOCKER_NAME="DOCKER_NAME"
 
 # To find the token -> https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/
 PLEX_TOKEN="YOUR_PLEX_TOKEN"  # Replace with your actual Plex token
 
 # Enter the main folder here. the subfolders located there are created as media libraries. E. g. /media
-FOLDER_PATH=r'/media'
+FOLDER_PATH="/media"
 
 # Plex Agent and Scanner
 PLEX_AGENT='com.plexapp.agents.stashplexagent'  # Standard Plex Movie Agent
