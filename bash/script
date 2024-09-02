@@ -6,6 +6,9 @@ DOCKER_NAME="DOCKER_NAME"  # Replace with the actual name of your Docker contain
 # To find the token -> https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/
 PLEX_TOKEN="YOUR_PLEX_TOKEN"  # Replace with your actual Plex token
 
+# Enter the main folder here. the subfolders located there are created as media libraries. E. g. /media
+base_folder="r'/media'"
+
 # If set to true, then the latest pythonscript is always loaded. Default: true
 OVERWRITE_OFFLINE_FILE=true  
 
@@ -49,6 +52,6 @@ fi
 # Copy and execute the Python script in the Docker container with the Plex token
 echo "Copying and running the script in the Docker container..."
 docker cp "$PYTHON_FILE" "$DOCKER_NAME":/
-docker exec "$DOCKER_NAME" /bin/bash -c "python3 /$PYTHON_FILE $PLEX_TOKEN"
+docker exec "$DOCKER_NAME" /bin/bash -c "python3 /$PYTHON_FILE $PLEX_TOKEN $base_folder"
 
 echo "Script completed."
