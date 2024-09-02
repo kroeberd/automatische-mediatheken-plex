@@ -11,7 +11,7 @@ if len(sys.argv) != 2:
     sys.exit(1)
 
 PLEX_TOKEN = sys.argv[1]
-base_folder = sys.argv[2]
+folder_path = sys.argv[2]
 PLEX_AGENT = sys.argv[3]
 PLEX_SCANNER = sys.argv[4]
 PLEX_URL = sys.argv[5]
