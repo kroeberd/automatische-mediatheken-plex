@@ -2,10 +2,18 @@
 
 # Define variables
 DOCKER_NAME="DOCKER_NAME"  # Replace with the actual name of your Docker container
+
+# To find the token -> https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/
+PLEX_TOKEN="YOUR_PLEX_TOKEN"  # Replace with your actual Plex token
+
+if set to true, then the latest pythonscript is always loaded. Default: true
+OVERWRITE_OFFLINE_FILE=true  
+
+#####################################
+#       Dont change from here       #
+#####################################
 PYTHON_FILE_URL="https://raw.githubusercontent.com/kroeberd/automatische-mediatheken-plex/main/user.script.version/lib.py"
 PYTHON_FILE="lib.py"
-OVERWRITE_OFFLINE_FILE=true  # If true, the offline file will be overwritten
-PLEX_TOKEN="YOUR_PLEX_TOKEN"  # Replace with your actual Plex token
 
 # Check if pip is installed
 echo "Checking if pip is installed..."
