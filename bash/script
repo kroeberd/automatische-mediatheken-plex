@@ -19,6 +19,8 @@ PYTHON_FILE="lib.py"
 echo "Checking if pip is installed..."
 if ! docker exec -it "$DOCKER_NAME" pip --version &> /dev/null; then
     echo "pip is not installed. Installing pip..."
+    docker exec -it "$DOCKER_NAME" /bin/bash -c "apt update"
+    docker exec -it "$DOCKER_NAME" /bin/bash -c "apt install python3 -y"
     docker exec -it "$DOCKER_NAME" /bin/bash -c "curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py"
     docker exec -it "$DOCKER_NAME" /bin/bash -c "python3 get-pip.py --break-system-packages"
     docker exec -it "$DOCKER_NAME" /bin/bash -c "pip install plexapi --break-system-packages"
