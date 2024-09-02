@@ -1,2 +1,32 @@
 #!/bin/bash
-echo "Test"
+#by Sarcasm/kroeberd v.0.1 01.2024
+# Define variables
+DOCKER_NAME="DOCKERNAME"  # Replace with the actual name of your Docker container
+PYTHON_FILE_URL="https://raw.githubusercontent.com/kroeberd/automatische-mediatheken-plex/main/mediathek.py"
+PYTHON_FILE="mediathek.py"
+OVERWRITE_OFFLINE_FILE=true  # If true, the offline file will be overwritten
+
+# Check if pip is installed
+echo "Checking if pip is installed..."
+if ! docker exec -it "$DOCKER_NAME" pip --version &> /dev/null; then
+    echo "pip is not installed. Installing pip..."
+    docker exec -it "$DOCKER_NAME" /bin/bash -c "curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py"
+    docker exec -it "$DOCKER_NAME" /bin/bash -c "python3 get-pip.py --break-system-packages"
+    docker exec -it "$DOCKER_NAME" /bin/bash -c "pip install plexapi --break-system-packages"
+else
+    echo "pip is already installed."
+fi
+
+# Download the Python file
+if [ "$OVERWRITE_OFFLINE_FILE" = true ] || [ ! -f "$PYTHON_FILE" ]; then
+    echo "Downloading $PYTHON_FILE..."
+    curl -O "$PYTHON_FILE_URL"
+else
+    echo "$PYTHON_FILE already exists and will not be overwritten."
+fi
+
+# Execute the Python script in the Docker container
+echo "Running the script..."
+docker exec -it "$DOCKER_NAME" /bin/bash -c "python3 $PYTHON_FILE"
+
+echo "Script completed."
