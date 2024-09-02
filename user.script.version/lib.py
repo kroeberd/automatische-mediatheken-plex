@@ -12,7 +12,7 @@ if len(sys.argv) != 6:
     sys.exit(1)
 
 PLEX_TOKEN = sys.argv[1]
-FOLDER_PATH = sys.argv[2]
+FOLDER_PATH = make_raw_string(sys.argv[2])  # Use make_raw_string to ensure it's treated as raw
 PLEX_AGENT = sys.argv[3]
 PLEX_SCANNER = sys.argv[4]
 PLEX_URL = sys.argv[5]
