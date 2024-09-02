@@ -3,13 +3,6 @@ import sys
 import os
 import requests
 import time
-
-def normalize_path(path):
-    """
-    Normalize the path to handle escape characters by replacing backslashes with forward slashes.
-    """
-    return path.replace('\\', '/')
-
 # Debug-Ausgaben
 print(f"Received arguments: {sys.argv}")
 
@@ -18,13 +11,13 @@ if len(sys.argv) != 6:
     sys.exit(1)
 
 PLEX_TOKEN = sys.argv[1]
-FOLDER_PATH = normalize_path(sys.argv[2])  # Normalize the path
+FOLDER_PATH = r(sys.argv[2])
 PLEX_AGENT = sys.argv[3]
 PLEX_SCANNER = sys.argv[4]
 PLEX_URL = sys.argv[5]
 
 # Debug-Ausgabe
-print(f"FOLDER_PATH: {FOLDER_PATH}")
+print(f"zweite ausgabe FOLDER_PATH: {FOLDER_PATH}")
 
 plex = PlexServer(PLEX_URL, PLEX_TOKEN)
 
