@@ -4,12 +4,11 @@ import os
 import requests
 import time
 
-def make_raw_string(FOLDER_PATH):
+def normalize_path(path):
     """
-    Convert the path to a raw string by replacing escape sequences.
-    This function is a workaround to handle paths with backslashes.
+    Normalize the path to handle escape characters by replacing backslashes with forward slashes.
     """
-    return FOLDER_PATH.replace('\\', r'\\')
+    return path.replace('\\', '/')
 
 # Debug-Ausgaben
 print(f"Received arguments: {sys.argv}")
@@ -19,7 +18,7 @@ if len(sys.argv) != 6:
     sys.exit(1)
 
 PLEX_TOKEN = sys.argv[1]
-FOLDER_PATH = make_raw_string(sys.argv[2])  # Use make_raw_string to handle escapes
+FOLDER_PATH = normalize_path(sys.argv[2])  # Normalize the path
 PLEX_AGENT = sys.argv[3]
 PLEX_SCANNER = sys.argv[4]
 PLEX_URL = sys.argv[5]
