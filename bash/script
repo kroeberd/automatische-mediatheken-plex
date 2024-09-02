@@ -10,7 +10,7 @@ DOCKER_NAME="DOCKER_NAME"  # Replace with the actual name of your Docker contain
 PLEX_TOKEN="YOUR_PLEX_TOKEN"  # Replace with your actual Plex token
 
 # Enter the main folder here. the subfolders located there are created as media libraries. E. g. /media
-folder_path=r'/media'
+folder_path=r"/media"
 
 # Plex Agent and Scanner
 PLEX_AGENT='com.plexapp.agents.stashplexagent'  # Standard Plex Movie Agent
