@@ -14,7 +14,10 @@ PLEX_AGENT = 'com.plexapp.agents.stashplexagent'  # Standard Plex Movie Agent
 PLEX_SCANNER = 'Plex Movie Scanner'  # Standard Plex Movie Scanner
 
 # If set to true, then the latest pythonscript is always loaded. Default: true
-OVERWRITE_OFFLINE_FILE=true  
+OVERWRITE_OFFLINE_FILE=true
+
+# Only change this value if you know exactly what you are doing. a change is not necessary. Default: http://127.0.0.1:32400
+PLEX_URL = 'http://127.0.0.1:32400'  # Replace with your Plex server URL
 
 #####################################
 #       Don't change from here      #
@@ -56,6 +59,6 @@ fi
 # Copy and execute the Python script in the Docker container with the Plex token
 echo "Copying and running the script in the Docker container..."
 docker cp "$PYTHON_FILE" "$DOCKER_NAME":/
-docker exec "$DOCKER_NAME" /bin/bash -c "python3 /$PYTHON_FILE $PLEX_TOKEN $base_folder $PLEX_AGENT $PLEX_SCANNER"
+docker exec "$DOCKER_NAME" /bin/bash -c "python3 /$PYTHON_FILE $PLEX_TOKEN $base_folder $PLEX_AGENT $PLEX_SCANNER $PLEX_URL"
 
 echo "Script completed."
