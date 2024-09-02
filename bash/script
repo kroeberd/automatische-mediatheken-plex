@@ -6,7 +6,7 @@ DOCKER_NAME="DOCKER_NAME"  # Replace with the actual name of your Docker contain
 # To find the token -> https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/
 PLEX_TOKEN="YOUR_PLEX_TOKEN"  # Replace with your actual Plex token
 
-if set to true, then the latest pythonscript is always loaded. Default: true
+# If set to true, then the latest pythonscript is always loaded. Default: true
 OVERWRITE_OFFLINE_FILE=true  
 
 #####################################
