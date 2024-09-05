@@ -17,7 +17,7 @@ Shell öffnen und Befehl ausführen in Unraid:
 
 Einrichtung:
 - DOCKER_NAME mit dem Namen des Plex-Dockers ersetzen (EXAKT)
-- YOUR_PLEX_TOKEN mit dem Token des Servers austauschen
+- YOUR_PLEX_TOKEN mit dem Token des Servers austauschen -> https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/
 - PLEX_AGENT, PLEX_SCANNER, OVERWRITE_OFFLINE_FILE und PLEX_URL nur bei Bedarf anpassen!
 - Danach speichern und einfach Starten.
 
@@ -38,6 +38,7 @@ Damit sollte das Script die Arbeit tun.
 
 **Anmerkung:** Entsprechend den Agent im Script anpassen. Dieser ist Standartgemäß auf Stash eingestellt.
 Stash-Agent -> https://github.com/Darklyter/StashPlexAgent.bundle
+Plex Token -> https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/
 
 ## Funktion
 
@@ -48,5 +49,8 @@ Beispiel:
 ```/media``` ist das Hauptverzeichnis, in welchem sich weitere Verzeichnisse befinden: ```/media/abc/098``` und ```/media/123/def```:
 
 Wenn ```/media``` als das Hauptverzeichnis gesetzt ist, werden dabei die Mediatheken ```abc``` und ```123``` erstellt.
+
+## Bugs
+- Viele Bibliotheken führen zum Ruckeln der Plex-App auf Konsolen
 
 **Viel Spaß!**
