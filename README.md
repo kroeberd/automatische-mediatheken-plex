@@ -38,6 +38,7 @@ Damit sollte das Script die Arbeit tun.
 
 **Anmerkung:** Entsprechend den Agent im Script anpassen. Dieser ist Standartgemäß auf Stash eingestellt.
 Stash-Agent -> https://github.com/Darklyter/StashPlexAgent.bundle
+
 Plex Token -> https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/
 
 ## Funktion
